@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="FabMenu">
+        <attr name="fab_color" format="color" />
+    </declare-styleable>
+</resources>
