@@ -4,11 +4,11 @@ TODO: Write a project description
 
 ## Installation
 
-compile 'com.zyceeit.android.fabmenu:fabmenu:0.1.0'
+      compile 'com.zyceeit.android.fabmenu:fabmenu:0.1.0'
 
 ## Usage
 
-   <com.zyceeit.android.fabmenu.FabMenu
+      <com.zyceeit.android.fabmenu.FabMenu
         android:id="@+id/fabMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
