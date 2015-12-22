@@ -1,13 +1,19 @@
 package com.zyceeit.android.fabmenu;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,7 +35,6 @@ public class FabMenu extends RelativeLayout {
     Context context;
 
     private FloatingActionButton fab;
-    //  private FloatingActionButton fab_sub1, fab_sub2, fab_sub3;
 
     int fabSizeInDP = 56;
     int subFabSizeInDP = 46;
@@ -97,30 +102,33 @@ public class FabMenu extends RelativeLayout {
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 
         fab.setLayoutParams(params);
-
-
         setFabMenuControl();
-
-        closeMenu();
     }
+
 
     public void openMenu() {
         isSubFabVisible = true;
         setSubFabVisible(isSubFabVisible);
+
+
+        //setAnimation();
     }
 
     public void closeMenu() {
         isSubFabVisible = false;
         setSubFabVisible(isSubFabVisible);
+
     }
 
     private void setSubFabVisible(boolean isSubFabVisible) {
         if (isSubFabVisible) {
             for (FloatingActionButton subFab : subFabList) {
+                //  subFab.animate().translationX(-100);
                 subFab.show();
             }
         } else {
             for (FloatingActionButton subFab : subFabList) {
+                //  subFab.animate().translationX(100);
                 subFab.hide();
             }
         }
@@ -140,15 +148,13 @@ public class FabMenu extends RelativeLayout {
     }
 
     public void setSubFabOnClickListener(List<OnClickListener> onClickListenerList) {
-       /* for (int i = 0; i < onClickListenerList.size(); i++) {
+        for (int i = 0; i < onClickListenerList.size(); i++) {
             subFabList.get(i).setOnClickListener(onClickListenerList.get(i));
-        }*/
+        }
     }
 
 
     public void addFab() {
-        //this.subFabList.add(fab);
-        //int numOfSubFabs = subFabList.size();
         int numOfSubFabs = this.fab_layout.getChildCount() - 1;
 
         if (numOfSubFabs == 0) {
@@ -186,7 +192,7 @@ public class FabMenu extends RelativeLayout {
 
             for (int i = 0; i < numOfSubFabs - 2; i++) {
                 this.fab_layout.removeViewAt(-i + numOfSubFabs);
-                this.subFabList.remove(-i + numOfSubFabs- 1);
+                this.subFabList.remove(-i + numOfSubFabs - 1);
             }
 
             for (int i = 0; i < numOfSubFabs - 1; i++) {
@@ -211,11 +217,7 @@ public class FabMenu extends RelativeLayout {
                 this.subFabList.add(i + 2, subFab);
             }
         }
-
-  /*      params.setMargins(0, 0, (-numOfSubFabs + 1) * 30, (numOfSubFabs ) * 80 + 50);
-        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-        params.addRule(RelativeLayout.START_OF, R.id.fab);*/
-
+        // closeMenu();
     }
 
     public void removeFab(FloatingActionButton fab) {
@@ -226,5 +228,24 @@ public class FabMenu extends RelativeLayout {
         this.subFabList.remove(index);
     }
 
+    public void setFabMenuBackgroundColor(int color) {
+        fab.setBackgroundTintList(ColorStateList.valueOf(color));
+    }
+
+    public void setFabMenuBackgroundDrawable(Drawable drawable) {
+        fab.setImageDrawable(drawable);
+    }
+
+    public void setSubFabBackgroundColor(int color) {
+        for (FloatingActionButton subFab : subFabList) {
+            subFab.setBackgroundTintList(ColorStateList.valueOf(color));
+        }
+    }
+
+    public void setSubFabBackgroundDrawable(List<Drawable> drawableList) {
+        for (int i = 0; i < drawableList.size(); i++) {
+            subFabList.get(i).setImageDrawable(drawableList.get(i));
+        }
+    }
 
 }

@@ -1,11 +1,14 @@
 package com.zyceeit.android.fabmenu.sample;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.Toast;
 
+import com.mikepenz.google_material_typeface_library.GoogleMaterial;
+import com.mikepenz.iconics.IconicsDrawable;
 import com.zyceeit.android.fabmenu.FabMenu;
 
 import java.util.ArrayList;
@@ -24,7 +27,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         initiateComponents();
-        //  setComponentControl();
+        setComponentControl();
 
     }
 
@@ -34,7 +37,28 @@ public class MainActivity extends Activity {
         fabMenu.addFab();
         fabMenu.addFab();
         fabMenu.addFab();
-        fabMenu.addFab();
+
+        fabMenu.setFabMenuBackgroundColor(Color.YELLOW);
+        fabMenu.setFabMenuBackgroundDrawable(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_settings)
+                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+
+        fabMenu.setSubFabBackgroundColor(Color.BLUE);
+
+        List<Drawable> drawableList = new ArrayList<>();
+        drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_settings)
+                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+        drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_check)
+                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+        drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_search)
+                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+        drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_dashboard)
+                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+
+
+        fabMenu.setSubFabBackgroundDrawable(drawableList);
+
+
+        // fabMenu.openMenu();
 
     }
 
@@ -45,6 +69,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "sub 1", Toast.LENGTH_SHORT).show();
+                fabMenu.closeMenu();
             }
         });
 
@@ -52,6 +77,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "sub 2", Toast.LENGTH_SHORT).show();
+                fabMenu.closeMenu();
             }
         });
 
@@ -59,6 +85,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "sub 3", Toast.LENGTH_SHORT).show();
+                fabMenu.closeMenu();
             }
         });
 
