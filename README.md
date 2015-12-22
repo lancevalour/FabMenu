@@ -13,6 +13,40 @@ TODO: Write a project description
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+        
+        
+      FabMenu fabMenu = (FabMenu) findViewById(R.id.fabMenu);
+      fabMenu.addFab();
+      fabMenu.addFab();
+      fabMenu.addFab();
+      fabMenu.addFab();
+      
+      List<View.OnClickListener> onClickListenerList = new ArrayList<>();
+      
+      onClickListenerList.add(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(), "sub 1", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+      onClickListenerList.add(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(), "sub 2", Toast.LENGTH_SHORT).show();
+            }
+      });
+
+      onClickListenerList.add(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(), "sub 3", Toast.LENGTH_SHORT).show();
+            }
+      });
+      
+      fabMenu.setSubFabOnClickListener(onClickListenerList);
+      
+      
 
 ## Contributing
 
