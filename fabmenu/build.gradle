@@ -1,8 +1,18 @@
 apply plugin: 'com.android.library'
 
+ext {
+    PUBLISH_GROUP_ID = 'com.zyceeit.android.fabmenu'
+    PUBLISH_ARTIFACT_ID = 'fabmenu'
+    PUBLISH_VERSION = '0.1.0'
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+
+    lintOptions{
+        abortOnError false
+    }
 
     defaultConfig {
         minSdkVersion 19
@@ -28,8 +38,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.0.+'
     compile 'com.android.support:recyclerview-v7:23.0.+'
 
-    compile 'com.mikepenz:iconics-core:1.7.9@aar'
-    compile 'com.mikepenz:google-material-typeface:1.2.0.1@aar'
-    compile 'com.mikepenz:community-material-typeface:1.2.64.1@aar'
 
 }
+
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'

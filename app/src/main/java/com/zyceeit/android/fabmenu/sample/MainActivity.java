@@ -32,35 +32,35 @@ public class MainActivity extends Activity {
     }
 
     private void initiateComponents() {
+
         fabMenu = (FabMenu) findViewById(R.id.fabMenu);
         fabMenu.addFab();
         fabMenu.addFab();
         fabMenu.addFab();
         fabMenu.addFab();
 
-        fabMenu.setFabMenuBackgroundColor(Color.YELLOW);
+        fabMenu.setFabMenuBackgroundColor(Color.parseColor("#5496cf"));
         fabMenu.setFabMenuBackgroundDrawable(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_settings)
-                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+                .color(Color.WHITE).sizeDp(16));
 
-        fabMenu.setSubFabBackgroundColor(Color.BLUE);
+        fabMenu.setSubFabBackgroundColor(Color.parseColor("#5496cf"));
 
         List<Drawable> drawableList = new ArrayList<>();
         drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_settings)
-                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+                .color(Color.WHITE).sizeDp(16));
         drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_check)
-                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+                .color(Color.WHITE).sizeDp(16));
         drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_search)
-                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
+                .color(Color.WHITE).sizeDp(16));
         drawableList.add(new IconicsDrawable(this.getBaseContext()).icon(GoogleMaterial.Icon.gmd_dashboard)
-                .color(getResources().getColor(R.color.cardview_light_background)).sizeDp(6));
-
+                .color(Color.WHITE).sizeDp(16));
 
         fabMenu.setSubFabBackgroundDrawable(drawableList);
 
-
-        // fabMenu.openMenu();
+        //  fabMenu.closeMenu();
 
     }
+
 
     private void setComponentControl() {
         List<View.OnClickListener> onClickListenerList = new ArrayList<>();
@@ -69,7 +69,9 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "sub 1", Toast.LENGTH_SHORT).show();
-                fabMenu.closeMenu();
+                // fabMenu.closeMenu();
+
+
             }
         });
 

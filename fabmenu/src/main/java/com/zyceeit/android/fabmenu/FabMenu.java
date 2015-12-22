@@ -107,17 +107,13 @@ public class FabMenu extends RelativeLayout {
 
 
     public void openMenu() {
+        setSubFabVisible(true);
         isSubFabVisible = true;
-        setSubFabVisible(isSubFabVisible);
-
-
-        //setAnimation();
     }
 
     public void closeMenu() {
+        setSubFabVisible(false);
         isSubFabVisible = false;
-        setSubFabVisible(isSubFabVisible);
-
     }
 
     private void setSubFabVisible(boolean isSubFabVisible) {
@@ -126,6 +122,7 @@ public class FabMenu extends RelativeLayout {
                 //  subFab.animate().translationX(-100);
                 subFab.show();
             }
+
         } else {
             for (FloatingActionButton subFab : subFabList) {
                 //  subFab.animate().translationX(100);
@@ -217,15 +214,13 @@ public class FabMenu extends RelativeLayout {
                 this.subFabList.add(i + 2, subFab);
             }
         }
-        // closeMenu();
-    }
-
-    public void removeFab(FloatingActionButton fab) {
-        this.subFabList.remove(fab);
+        //  closeMenu();
     }
 
     public void removeFab(int index) {
         this.subFabList.remove(index);
+        this.fab_layout.removeViewAt(index + 1);
+
     }
 
     public void setFabMenuBackgroundColor(int color) {
