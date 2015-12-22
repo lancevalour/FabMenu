@@ -1,14 +1,18 @@
-# Project Name
+# FabMenu
 
 TODO: Write a project description
 
 ## Installation
 
-TODO: Describe the installation process
+compile 'com.zyceeit.android.fabmenu:fabmenu:0.1.0'
 
 ## Usage
 
-TODO: Write usage instructions
+   <com.zyceeit.android.fabmenu.FabMenu
+        android:id="@+id/fabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
 ## Contributing
 
