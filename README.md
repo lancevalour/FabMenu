@@ -1,52 +1,56 @@
 # FabMenu
 
-TODO: Write a project description
+A Floating Action Menu 
 
 ## Installation
-
-      compile 'com.zyceeit.android.fabmenu:fabmenu:0.1.0'
-
+```
+compile 'com.zyceeit.android.fabmenu:fabmenu:0.1.0'
+```
 ## Usage
+```xml
+<com.zyceeit.android.fabmenu.FabMenu
+    android:id="@+id/fabMenu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true" />  
+```
+```java
+FabMenu fabMenu = (FabMenu) findViewById(R.id.fabMenu);
+fabMenu.addFab();
+fabMenu.addFab();
+fabMenu.addFab();
+fabMenu.addFab();
 
-      <com.zyceeit.android.fabmenu.FabMenu
-        android:id="@+id/fabMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
-        
-        
-      FabMenu fabMenu = (FabMenu) findViewById(R.id.fabMenu);
-      fabMenu.addFab();
-      fabMenu.addFab();
-      fabMenu.addFab();
-      fabMenu.addFab();
-      
-      List<View.OnClickListener> onClickListenerList = new ArrayList<>();
-      
-      onClickListenerList.add(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "sub 1", Toast.LENGTH_SHORT).show();
-            }
-        });
+List<View.OnClickListener> onClickListenerList = new ArrayList<>();
 
-      onClickListenerList.add(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "sub 2", Toast.LENGTH_SHORT).show();
-            }
-      });
+onClickListenerList.add(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getBaseContext(), "sub 1", Toast.LENGTH_SHORT).show();
+        fabMenu.closeMenu();
+    }
+});
 
-      onClickListenerList.add(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "sub 3", Toast.LENGTH_SHORT).show();
-            }
-      });
-      
-      fabMenu.setSubFabOnClickListener(onClickListenerList);
-      
-      
+onClickListenerList.add(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getBaseContext(), "sub 2", Toast.LENGTH_SHORT).show();
+        fabMenu.closeMenu();
+    }
+});
+
+onClickListenerList.add(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getBaseContext(), "sub 3", Toast.LENGTH_SHORT).show();
+        fabMenu.closeMenu();
+    }
+});
+
+
+fabMenu.setSubFabOnClickListener(onClickListenerList);
+```      
+
 
 ## Contributing
 
@@ -65,13 +69,14 @@ TODO: Write history
 TODO: Write credits
 
 ## License
+```
+The MIT License (MIT)
 
-    The MIT License (MIT)
+Copyright (c) 2015 Yicheng Zhang
 
-    Copyright (c) 2015 Yicheng Zhang
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```    
