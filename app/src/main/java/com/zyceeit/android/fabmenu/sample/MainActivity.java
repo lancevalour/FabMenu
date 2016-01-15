@@ -9,8 +9,12 @@ import android.widget.Toast;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 import com.zyceeit.android.fabmenu.FabMenu;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,9 +73,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(), "sub 1", Toast.LENGTH_SHORT).show();
-                // fabMenu.closeMenu();
-
-
+                fabMenu.closeMenu();
             }
         });
 
@@ -107,5 +109,19 @@ public class MainActivity extends Activity {
         fabMenu.setSubFabOnClickListener(onClickListenerList);
     }
 
+
+    OkHttpClient client = new OkHttpClient();
+
+    String result;
+
+
+    String getUrl(String url) throws IOException {
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        return response.body().string();
+    }
 
 }
