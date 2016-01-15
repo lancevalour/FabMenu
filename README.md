@@ -1,5 +1,8 @@
 # FabMenu
 
+![image](https://codeship.com/projects/f19c5380-9dc3-0133-8d35-5e859e904c15/status?branch=master)
+
+
 A Floating Action Menu 
 
 ## Installation
